@@ -137,7 +137,7 @@ const Sidebar = () => {
             />
             <Item
               title="Add routes"
-              to="/addRoutes"
+              to="/form"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

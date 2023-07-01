@@ -29,6 +29,7 @@ const Form = () => {
           handleSubmit,
         }) => (
           <form onSubmit={handleSubmit}>
+            
             <Box
               display="grid"
               gap="30px"
@@ -41,78 +42,79 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label="Add the Ward No."
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
+                value={values.wardNo}
+                name="wardNo"
+                error={!!touched.wardNo && !!errors.wardNo}
+                helperText={touched.wardNo && errors.wardNo}
+                sx={{ gridColumn: "span 4" }}
+              />
+              
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Starting Point longitude"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.startLong}
+                name="startLong"
+                error={!!touched.startLong && !!errors.startLong}
+                helperText={touched.startLong && errors.startLong}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label="Stoping Point longitude"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
+                value={values.stoplong}
+                name="stoplong"
+                error={!!touched.stoplong && !!errors.stoplong}
+                helperText={touched.stoplong && errors.stoplong}
+                sx={{ gridColumn: "span 2" }}
+              />
+               <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Starting Point latitude"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.startlat}
+                name="startlat"
+                error={!!touched.startlat && !!errors.startlat}
+                helperText={touched.startlat && errors.startlat}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Email"
+                label="Stoping Point latitude"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.email}
-                name="email"
-                error={!!touched.email && !!errors.email}
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
+                value={values.stoplat}
+                name="stoplat"
+                error={!!touched.stoplat && !!errors.stoplat}
+                helperText={touched.stoplat && errors.stoplat}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Contact Number"
+                label="Distance to be covered"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact}
-                helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 1"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                value={values.distance}
+                name="distance"
+                error={!!touched.distance && !!errors.distance}
+                helperText={touched.distance && errors.distance}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
@@ -128,8 +130,6 @@ const Form = () => {
   );
 };
 
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 const checkoutSchema = yup.object().shape({
   firstName: yup.string().required("required"),
