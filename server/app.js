@@ -17,7 +17,7 @@ app.use(express.json());
 //we link the router files
 app.use(require("./routes/adminRoutes"));
 
-const Route = require("./models/routeSchema");
+const Path = require("./models/pathSchema");
 
 const port = Number(process.env.PORT) || 3000;
 

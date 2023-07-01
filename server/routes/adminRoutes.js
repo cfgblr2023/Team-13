@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const RouteSchema = require("../models/routeSchema");
+const PathSchema = require("../models/pathSchema");
 const VolunteerCollectedSchema = require("../models/volunteerCollectedSchema");
 const UserCollectedSchema = require("../models/userCollectedSchema");
 
@@ -25,12 +25,7 @@ router.post("/route", async (req, res) => {
       error: "Please fill all the fields",
     });
   }
-  // const allRoutes = await Route.find();
-  // console.log(allRoutes);
-  // console.log(req.body);
-  // Route.insertOne(req.body);
-  // console.log(allRoutes);
-  await RouteSchema.create(req.body);
+  await PathSchema.create(req.body);
   res.status(201).json({
     message: "Route saved successfully",
   });

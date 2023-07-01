@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const routeSchema = mongoose.Schema({
+const pathSchema = mongoose.Schema({
   ward: {
     type: String,
     required: true,
@@ -27,6 +27,6 @@ const routeSchema = mongoose.Schema({
   },
 });
 
-const Routess = mongoose.model("ROUTE", routeSchema);
+const Path = mongoose.model("PATH", pathSchema);
 
-module.exports = Routess;
+module.exports = Path;

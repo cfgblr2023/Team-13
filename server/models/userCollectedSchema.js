@@ -36,7 +36,7 @@ const userCollectedSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  routeName: {
+  pathName: {
     type: String,
     required: true,
   },
