@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const express = require("express");
-const bodyParser = require("body-parser");
 
 const routeSchema = mongoose.Schema({
   ward: {
@@ -28,30 +26,6 @@ const routeSchema = mongoose.Schema({
     required: true,
   },
 });
-
-routeSchema.methods.addRoute = async function (
-  ward,
-  startingpointlat,
-  startingpointlong,
-  endingpointlat,
-  endingpointlong,
-  distance
-) {
-  try {
-    this.routes = this.routes.concat({
-      ward,
-      startingpointlat,
-      startingpointlong,
-      endingpointlat,
-      endingpointlong,
-      distance,
-    });
-    await this.save();
-    return this.routes;
-  } catch (e) {
-    console.log(e);
-  }
-};
 
 const Routess = mongoose.model("ROUTE", routeSchema);
 

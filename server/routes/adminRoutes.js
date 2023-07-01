@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Route = require("../models/routeSchema");
+const RouteSchema = require("../models/routeSchema");
+const VolunteerCollectedSchema = require("../models/volunteerCollectedSchema");
+const UserCollectedSchema = require("../models/userCollectedSchema");
 
 router.post("/route", async (req, res) => {
-  console.log(req.body);
   const {
     ward,
     startingpointlat,
@@ -29,9 +30,23 @@ router.post("/route", async (req, res) => {
   // console.log(req.body);
   // Route.insertOne(req.body);
   // console.log(allRoutes);
-  await Route.create(req.body);
+  await RouteSchema.create(req.body);
   res.status(201).json({
     message: "Route saved successfully",
+  });
+});
+
+router.post("/volunteers", async (req, res) => {
+  await VolunteerCollectedSchema.create(req.body);
+  res.status(201).json({
+    message: "Volunteer data collected successfully",
+  });
+});
+
+router.post("/users", async (req, res) => {
+  await UserCollectedSchema.create(req.body);
+  res.status(201).json({
+    message: "User data collected successfully",
   });
 });
 
