@@ -11,10 +11,10 @@ const ImageUploadButton = () => {
     setSelectedImage(URL.createObjectURL(file));
 
     // Generate random values for category, subcategory, ward, and route
-    const categories = ['Waste', 'Footpath quality', 'Obstruction','unsafe zone','enchroachment'];
+    const categories = ['Waste', 'Footpath quality', 'Obstruction'];
     const subcategories = {
       Waste: ['litter', 'slit', 'garbage',],
-      enchroachment: ['by planters', 'by vendors', 'by planting'],
+      'Footpath quality': ['by planters', 'by vendors', 'by planting'],
       obstruction: ['low hanging wires', 'junction boxes','construction debris']
       
     };
@@ -30,7 +30,7 @@ const ImageUploadButton = () => {
 
   return (
     <div>
-      <input className='ip' type="file" onChange={handleImageUpload} />
+    <a href='http://localhost:5000'/>
       <div>
         <label>Category:</label>
         <input className='ip' type="text" value={category} disabled />
