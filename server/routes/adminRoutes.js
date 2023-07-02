@@ -3,6 +3,7 @@ const router = express.Router();
 const PathSchema = require("../models/pathSchema");
 const VolunteerCollectedSchema = require("../models/volunteerCollectedSchema");
 const UserCollectedSchema = require("../models/userCollectedSchema");
+const Priority = require("../models/priorityListSchema");
 
 router.post("/route", async (req, res) => {
   const {
@@ -45,4 +46,21 @@ router.post("/users", async (req, res) => {
   });
 });
 
+router.get("/admin/getData", async (req, res) => {
+  const data = await UserCollectedSchema.find();
+  const count = {};
+  data.forEach((element) => {
+    if (count[element.pathName]) count[element.pathName] += 1;
+    else {
+      count[element.pathName] = 1;
+    }
+  });
+  const entries = Object.entries(count);
+  entries.sort((a, b) => b[1] - a[1]);
+  const sortedObj = Object.fromEntries(entries);
+  res.status(201).send({
+    message: "Priority List",
+    sortedObj,
+  });
+});
 module.exports = router;
